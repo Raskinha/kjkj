@@ -1,0 +1,82 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 7 de nov. de 2022, 19:32:50
+    Author     : 37279
+*/
+:root{
+    --color-preto: #1c1c1c;
+}
+body{
+    background-color: #363636;
+}
+
+.logo img{
+    width: 45px;
+}
+
+.title{
+    text-align: center;
+    color: red
+}
+
+.cabecalho,
+.navegacao{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cabecalho{
+    background-color: black;
+    box-shadow: 1px 1px 4px var(--color-preto);
+    height: 3.5em;
+    justify-content: space-between;
+    padding: 0 10%;
+}   
+.navegacao{
+    gap: 3em;
+    z-index: 2;
+}
+.navegacao a{
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+    font-weight: bold;
+}
+.fundo{
+    background-color: #363636;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn_icon{
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .btn_icon{
+        display: block;
+    }
+    .navegacao{
+        position: absolute;
+        flex-direction: column;
+        top: 0;
+        background-color: #5a5a5a;
+        height: 100%;
+        width: 35vw;
+        padding: 16px;
+        animation-duration: 1s;
+        margin-left: -100vw;
+    }
+    @keyframes showSidebar {
+        from{margin-left: -100vw;}
+        top{margin-left: -100vw; margin-top: 50vw}
+    }
+}
+/*https://www.youtube.com/watch?v=Pjb-66eTrik*/
