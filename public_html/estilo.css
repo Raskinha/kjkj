@@ -11,6 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 body{
     background-color: #363636;
+    color:white;
 }
 
 .logo img{
@@ -19,7 +20,8 @@ body{
 
 .title{
     text-align: center;
-    color: red
+    color: red;
+    display: block;
 }
 
 .cabecalho,
@@ -45,6 +47,9 @@ body{
     transition: 1s;
     font-weight: bold;
 }
+.navegacao a:hover{
+    color: red;
+}
 .fundo{
     background-color: #363636;
     padding: 10px;
@@ -65,7 +70,7 @@ body{
     }
     .navegacao{
         position: absolute;
-        flex-direction: column;
+        flex-direction: column !important;
         top: 0;
         background-color: #5a5a5a;
         height: 100%;
@@ -74,9 +79,63 @@ body{
         animation-duration: 1s;
         margin-left: -100vw;
     }
-    @keyframes showSidebar {
-        from{margin-left: -100vw;}
-        top{margin-left: -100vw; margin-top: 50vw}
+    @keyframes mostraBarraNav {
+        from {margin-left: -100vw;}
+        to {margin-left: -10vw;}
     }
 }
-/*https://www.youtube.com/watch?v=Pjb-66eTrik*/
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    height: auto;
+    width: 100vw;
+    font-family: 'Open Sans';
+    padding-top: 40px;
+    color: gold;
+}
+.conteudo-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.conteudo-footer h5{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.conteudo-footer p{/*esse p esta comentado caso queira descomentar e mudar alguma coisa fica a seu critério*/
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.social{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.social a{
+    text-decoration: none;
+    color: gold;
+    transition: 1s;
+    font-weight: bold;
+}
+.social a:hover{
+    color: red;
+}
+.social img{
+    border-radius: 50%;
+    width: 25%;
+    /*as img nao certas com o texto tem algo de errado ali n sei oq é*/
+}

@@ -8,58 +8,77 @@
     </head>
     <body>
         <header class='cabecalho' id='header'>
-            <button onClick='abreSidebar()' class='btn_icon'>
+            <button onClick='abreBarraNav()' class='btn_icon'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                 </svg>
             </button>
             <div class='logo'>
-                <img src='img/logo-ruby.png' title='RUBY-LOGO'>
+                <img src='img/logo-ruby.png' alt='RUBY-LOGO'>
             </div>
             <div class='title'>
                 <h1>RUBY</h1>
             </div>
-            <div class='navegacao' id='navegacao'>
-                <button onClick='abreSidebar()' class='btn_icon'>
+            <nav class='navegacao' id='navegacao'>
+                <button onClick='fechaBarraNav()' class='btn_icon'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
                     </svg>
                 </button>
                 <a href="#home" class='fundo-navegacao'>Home</a>
-                <a href="#">Contato</a>
-            </div> 
+                <a href="#contato">Contato</a>
+            </nav> 
         </header>
         <div onclick='fechaSideBar()' class="conteudo" id='conteudo'>
             <!--Conteudo-->
         </div>
         <footer>
-            
+            <div class="conteudo-footer">
+                <h5 id="contato">Redes Socias</h5>
+                <!--<p>Este site foi desenvolvido com o objetivo de suprir os requerimentos necessátios do trabalho academico do curso Sistemas da Informação - UNIDAVI</p>-->
+                <ul class='social'>
+                    <li><a href='https://www.instagram.com/paulo.warmling/'><img src="img/img-perfil.jpg" class="img" alt="img paulo"/></a></li>
+                    <li><a href="https://www.instagram.com/andregnclvz/"><img src="img/img-perfil.jpg" class='img' alt="img andre"/></a></li>
+                </ul>
+            </div>
+            <div class='footer-btn'>
+                <p>copyright &copy; 2022 UNIDAVI. designed by <span>Paulo Warmling & André Gonçalves</span></p>
+            </div>
         </footer>
     </body>
     <script>
-        var header = document.getElementById('header');
-        var navegacao = document.getElementById('navegacao');
-        var conteudo = document.getElementById('conteudo');
-        var showSidebar = false;
+        var header      = document.getElementById('header');
+        var navegacao   = document.getElementById('navegacao');
+        var conteudo    = document.getElementById('conteudo');
+        var mostraBarraNav = false;
         
-        function abreSidebar() {
-            showSidebar = !showSidebar;
-            console.log(showSidebar);
-            if(showSidebar) {
-                navegacao.style.marginleft = '-10vw';
-                navegacao.style.animationName = 'showSidebar';
+        function abreBarraNav() {
+            mostraBarraNav = !mostraBarraNav;
+            console.log(mostraBarraNav);
+            if(mostraBarraNav) {
+                navegacao.style.marginLeft = '-10vw';
+                navegacao.style.animationName = 'mostraBarraNav';
                 conteudo.style.filter = 'blur(2px)';
             }
             else{
-                navegacao.style.marginleft = '-100vw';
+                navegacao.style.marginLeft = '-100vw';
                 navegacao.style.animationName = '';
                 conteudo.style.filter = '';
             }
         }
-        function fechaSideBar() {
-            if(showSideBar){
-                abreSlidebar();
+        
+        function fechaBarraNav() {
+            if(mostraBarraNav){
+                mostraBarraNav = true;
+                abreBarraNav();
             }
         }
+        
+        window.addEventListener('resize', function(event) {
+            if(window.innerWidth > 768 && mostraBarraNav){
+                mostraBarraNav = true;
+                abreBarraNav();
+            }
+        });
     </script>
 </html>
